@@ -1,0 +1,27 @@
+$black: #000;
+$blackGray: #333;
+$gray: #666;
+$silver: #999;
+$whiteGray: #ccc;
+$lightGray: #f2f5f7;
+$white: #fff;
+$lightGreen: #3dcf8e;
+$red: #f95454;
+$blue: #0091ff;
+
+$fz-xs: 0.12rem;
+$fz-sm: 0.14rem;
+$fz-md: 0.16rem;
+$fz-lg: 0.18rem;
+$fz-xl: 0.2rem;
+$fz-xxl: 0.22rem;
+$fz-xxxl: 0.24rem;
+$fz-subtitle: 0.28rem;
+$fz-title: 0.32rem;
+$fz-homeTitle: 0.48rem;
+
+%ellipsis {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}

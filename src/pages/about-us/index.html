@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>关于我们</title>
+    <link rel="icon" href="/static/imgs/favicon.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="/static/imgs/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="/static/css/plugin.min.css">
+    <script src="/static/js/reset-rem.js"></script>
+    <script src="/static/js/vue.js"></script>
+    <script src="/static/js/plugin.min.js"></script>
+</head>
+
+<body>
+    <header class="navAboutUs">
+        <% var header = require('../../components/header.ejs') %>
+        <%= header() %>
+    </header>
+    <div class="about-us">
+        <h1>This is about us page</h1>
+        <h2>Example 6</h2>
+        <div id="example-7">
+            <select v-model="selected">
+                <option v-for="option in options" v-bind:value="option.value">
+                    {{ option.text }}
+                </option>
+            </select>
+            <span>Selected: {{ selected }}</span>
+        </div>
+        <script>
+            new Vue({
+                el: '#example-7',
+                data: {
+                    selected: 'A',
+                    options: [
+                        { text: 'One', value: 'A' },
+                        { text: 'Two', value: 'B' },
+                        { text: 'Three', value: 'C' }
+                    ]
+                }
+            })
+        </script>
+        <h2>Example 7</h2>
+        <div id="example-5">
+            <select v-model="selected">
+                <option disabled value="">请选择</option>
+                <option>A</option>
+                <option>B</option>
+                <option>C</option>
+            </select>
+            <span>Selected: {{ selected }}</span>
+        </div>
+        <script>
+            new Vue({
+                el: '#example-5',
+                data: {
+                    selected: ''
+                }
+            })
+        </script>
+    </div>
+    <footer>
+        <% var footer = require('../../components/footer.ejs') %>
+        <%= footer() %>
+    </footer>
+</body>
+
+</html>

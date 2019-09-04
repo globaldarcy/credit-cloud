@@ -1,0 +1,17 @@
+.cf:before,
+.cf:after {
+    content: " ";
+    display: table;
+}
+
+.cf:after {
+    clear: both;
+}
+
+header {
+    font-size: 0.14rem;
+}
+
+footer {
+    font-size: 0.14rem;
+}

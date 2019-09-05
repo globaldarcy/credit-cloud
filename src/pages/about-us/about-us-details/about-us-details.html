@@ -10,8 +10,6 @@
     <link rel="shortcut icon" href="/static/imgs/favicon.ico" type="image/x-icon" />
     <link rel="stylesheet" href="/static/css/plugin.min.css">
     <script src="/static/js/reset-rem.js"></script>
-    <script src="/static/js/vue.js"></script>
-    <script src="/static/js/plugin.min.js"></script>
 </head>
 
 <body>
@@ -31,33 +29,33 @@
             <br>
             <span>Selected: {{ selected }}</span>
         </div>
-        <script>
-            new Vue({
-                el: '#example-6',
-                data: {
-                    selected: []
-                }
-            })
-        </script>
+
 
         <div class="block">
             <span class="demonstration">默认</span> <br>
-            <el-image src="/static/imgs/3.jpg"></el-image>
-            <img src="/static/imgs/2.jpg" alt="">
+            <el-image src="/static/imgs/9.jpg"></el-image>
         </div>
-        <script>
-            new Vue({
-                el: '.about-us-details',
-                data: {
-                    selected: []
-                }
-            })
-        </script>
     </div>
     <footer>
         <% var footer = require('../../../components/footer.ejs') %>
         <%= footer() %>
     </footer>
+    <script src="/static/js/vue.js"></script>
+    <script src="/static/js/plugin.min.js"></script>
+    <script>
+        new Vue({
+            el: '#example-6',
+            data: {
+                selected: []
+            }
+        })
+        new Vue({
+            el: '.about-us-details',
+            data: {
+                selected: []
+            }
+        })
+    </script>
 </body>
 
 </html>

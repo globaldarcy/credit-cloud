@@ -48,7 +48,7 @@ module.exports = () => {
                 },
                 {
                     exclude: /fonts/,
-                    test: /\.(jpeg|jpg|png|gif|svg|JPEG|JPG|PNG|GIF|SVG)$/,
+                    test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
                     use: {
                         loader: 'url-loader',
                         options: {
@@ -83,6 +83,7 @@ module.exports = () => {
             // openPage: 'html/',
             // host: '10.96.129.28',
         },
+        devtool: '#source-map',
         plugins: [
             new CleanWebpackPlugin(cleanDist, {
                 // 允许插件清理webpack目录以外的文件夹
@@ -95,24 +96,27 @@ module.exports = () => {
             new HtmlWebPackPlugin({
                 template: './src/pages/home/index.html',
                 filename: outPutFolder + 'index.html',
-                path: path.resolve(__dirname, distFolder)
+                path: path.resolve(__dirname, distFolder),
+                hash: true,
+                minify: {
+                    removeComments: true,
+                    collapseWhitespace: true,
+                    minifyCSS: true,
+                    minifyJS: true,
+                },
             }),
             new CopyWebpackPlugin([{
                 from: path.resolve(__dirname, './src/static'),
                 to: 'static',
                 ignore: ['.*']
-            }])
-        ],
-        optimization: {
-            minimizer: [
-                new UglifyJsPlugin({
-                    cache: true,
-                    parallel: true,
-                    sourceMap: true, // set to true if you want JS source maps
-                }),
-                new OptimizeCssAssetsPlugin({})
-            ],
-        }
+            }]),
+            new UglifyJsPlugin({
+                cache: true,
+                parallel: true,
+                sourceMap: true,
+            }),
+            new OptimizeCssAssetsPlugin({})
+        ]
     };
     const files = glob.sync('./src/pages/**/*.html');
     files.forEach(file => {
@@ -130,7 +134,14 @@ module.exports = () => {
                     new HtmlWebPackPlugin({
                         template: file,
                         filename: outPutFolder + file.replace(replacePath, "").replace(`/${lastItem}`, ""),
-                        path: path.resolve(__dirname, distFolder)
+                        path: path.resolve(__dirname, distFolder),
+                        hash: true,
+                        minify: {
+                            removeComments: true,
+                            collapseWhitespace: true,
+                            minifyCSS: true,
+                            minifyJS: true,
+                        },
                     })
                 );
             } else {
@@ -138,7 +149,14 @@ module.exports = () => {
                     new HtmlWebPackPlugin({
                         template: file,
                         filename: outPutFolder + file.replace(replacePath, ""),
-                        path: path.resolve(__dirname, distFolder)
+                        path: path.resolve(__dirname, distFolder),
+                        hash: true,
+                        minify: {
+                            removeComments: true,
+                            collapseWhitespace: true,
+                            minifyCSS: true,
+                            minifyJS: true,
+                        },
                     })
                 );
             }

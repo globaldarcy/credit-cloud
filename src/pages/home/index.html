@@ -10,8 +10,6 @@
     <link rel="shortcut icon" href="/static/imgs/favicon.ico" type="image/x-icon" />
     <link rel="stylesheet" href="/static/css/plugin.min.css">
     <script src="/static/js/reset-rem.js"></script>
-    <script src="/static/js/vue.js"></script>
-    <script src="/static/js/plugin.min.js"></script>
 </head>
 
 <body>
@@ -22,19 +20,14 @@
     </header>
     <div class="home-container">
         <h1>This is home page</h1>
+
+        <div id="logo">sdfsd</div>
+        <img src="static/imgs/9.jpg" alt="">
         <h2>Example 1</h2>
         <div id="example-1">
             <el-input v-model="message" placeholder="请输入内容"></el-input>
             <p>Message is: {{ message }}</p>
         </div>
-        <script>
-            new Vue({
-                el: '#example-1',
-                data: {
-                    message: ''
-                }
-            })
-        </script>
         <h2>Example 2</h2>
         <div id="example-textarea">
             <span>Multiline message is:</span>
@@ -42,28 +35,12 @@
             <br>
             <el-input type="textarea" :rows="2" placeholder="请输入内容" v-model="message"> </el-input>
         </div>
-        <script>
-            new Vue({
-                el: '#example-textarea',
-                data: {
-                    message: ''
-                }
-            })
-        </script>
         <h2>Example 3</h2>
         <div id="example-2">
             <!-- <el-input type="checkbox" id="checkbox" v-model="checked"> -->
             <el-checkbox v-model="checked">备选项</el-checkbox>
             <label for="checkbox">{{ checked }}</label>
         </div>
-        <script>
-            new Vue({
-                el: '#example-2',
-                data: {
-                    checked: false
-                }
-            })
-        </script>
         <h2>Example 4</h2>
         <div id="example-3">
             <el-checkbox-group v-model="checkedNames">
@@ -74,14 +51,6 @@
             <br>
             <span>Checked names: {{ checkedNames }}</span>
         </div>
-        <script>
-            new Vue({
-                el: '#example-3',
-                data: {
-                    checkedNames: []
-                }
-            })
-        </script>
         <h2>Example 5</h2>
         <div id="example-4">
             <el-radio v-model="radio" label="One">备选项</el-radio>
@@ -90,22 +59,11 @@
             <br>
             <span>Picked: {{ radio }}</span>
         </div>
-        <script>
-            new Vue({
-                el: '#example-4',
-                data: {
-                    radio: ''
-                }
-            })
-        </script>
 
         <h2>Example 6</h2>
         <div id="example-img" class="demo-image__placeholder">
             <div class="block">
                 <span class="demonstration">默认</span> <br>
-                <el-image :src="srcImg1"></el-image>
-                <el-image src="/static/imgs/3.jpg"></el-image>
-                <img src="/static/imgs/2.jpg" alt="">
             </div>
             <div class="block">
                 <span class="demonstration">自定义</span><br>
@@ -117,20 +75,52 @@
             </div>
         </div>
 
-        <script>
-            new Vue({
-                el: '#example-img',
-                data: {
-                    srcImg1: '../../static/imgs/1.jpg',
-                    srcImg: 'https://cube.elemecdn.com/6/94/4d3ea53c084bad6931a56d5158a48jpeg.jpeg'
-                }
-            })
-        </script>
     </div>
     <footer>
         <% var footer = require('../../components/footer.ejs') %>
         <%= footer() %>
     </footer>
+    <script src="/static/js/vue.js"></script>
+    <script src="/static/js/plugin.min.js"></script>
+    <script>
+        new Vue({
+            el: '#example-1',
+            data: {
+                message: ''
+            }
+        })
+        new Vue({
+            el: '#example-textarea',
+            data: {
+                message: ''
+            }
+        })
+        new Vue({
+            el: '#example-2',
+            data: {
+                checked: false
+            }
+        })
+        new Vue({
+            el: '#example-3',
+            data: {
+                checkedNames: []
+            }
+        })
+        new Vue({
+            el: '#example-4',
+            data: {
+                radio: ''
+            }
+        })
+        new Vue({
+            el: '#example-img',
+            data: {
+                srcImg1: 'static/imgs/1.jpg',
+                srcImg: 'https://cube.elemecdn.com/6/94/4d3ea53c084bad6931a56d5158a48jpeg.jpeg'
+            }
+        })
+    </script>
 </body>
 
 </html>

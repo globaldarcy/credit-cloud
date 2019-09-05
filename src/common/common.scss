@@ -10,6 +10,12 @@
 
 header {
     font-size: 0.14rem;
+    #logo {
+        width: 100px;
+        height: 100px;
+        background: url(common/imgs/logo.png) no-repeat center;
+        background-size: 100px;
+    }
 }
 
 footer {
